@@ -1,0 +1,50 @@
+# Generic Deployment + Service template with probes and resource limits.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: example-service
+  template:
+    metadata:
+      labels:
+        app: example-service
+    spec:
+      containers:
+        - name: app
+          image: registry.example.com/example-service:latest
+          ports:
+            - containerPort: 8000
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+            limits:
+              cpu: "1000m"
+              memory: "512Mi"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: example-service
+spec:
+  selector:
+    app: example-service
+  ports:
+    - port: 80
+      targetPort: 8000

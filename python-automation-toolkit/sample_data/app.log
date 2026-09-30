@@ -1,0 +1,10 @@
+2026-09-28 09:02:11 INFO  api Request completed in 118ms
+2026-09-28 09:02:14 ERROR db Connection timeout after 30s
+2026-09-28 09:02:15 ERROR db Connection timeout after 30s
+2026-09-28 09:03:01 WARN  cache Redis latency above threshold
+2026-09-28 09:04:44 ERROR auth Token validation failed for user
+2026-09-28 09:05:02 INFO  api Request completed in 95ms
+2026-09-28 09:06:30 ERROR db Connection timeout after 30s
+2026-09-28 09:07:12 INFO  worker Job queue drained in 4s
+2026-09-28 09:08:55 ERROR auth Token validation failed for user
+2026-09-28 09:09:31 INFO  api Request completed in 141ms
